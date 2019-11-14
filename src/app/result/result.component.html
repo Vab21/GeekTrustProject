@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">  
+    <mat-toolbar-row>
+        <h1 class="example-spacer">Find Falcone</h1>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+    <mat-card-header><h3>{{status | uppercase}}</h3></mat-card-header>
+    <mat-card-content *ngIf="status == 'success'">
+        <h2>Congratulations on finding falcone. King Shan is mighty pleased !!!</h2>
+        <h4>Time Taken: {{ totalTime }}</h4>
+        <h4>Planet Found: {{ planet }}</h4>        
+    </mat-card-content>
+    <mat-card-content *ngIf="status == 'failure'">
+        <h2>Sorry you could not find falcone. King Shan is not happy !!!</h2>     
+    </mat-card-content>
+    <mat-card-content *ngIf="status == 'error'">
+            <h2>Some error occured. Please try again !!!</h2>     
+        </mat-card-content>
+    <mat-card-actions>
+        <button mat-button type="button" class="mat-raised-button" color="warn" style="width: 20%; margin-bottom: 10px;" (click)="home()">Let's Find Falcone Again !!!</button>
+    </mat-card-actions>
+</mat-card>
+<mat-toolbar color="primary" id="footer">  
+    <mat-toolbar-row>
+        <span>&copy; GeekTrust front end coding solution by Vaibhav Jain</span>
+    </mat-toolbar-row>
+</mat-toolbar>    

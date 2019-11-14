@@ -1,0 +1,56 @@
+.example-icon {
+    padding: 0 14px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+form#findFalcon {
+    padding: 4px;
+}
+#findFalcon .mat-grid-tile {
+    border: 1px solid #ccc;
+}
+#findFalcon .mat-grid-tile .mat-figure {
+    padding: 10px;
+}
+#findFalcon mat-card.mat-card {
+    padding: 0;
+}
+#findFalcon mat-card-header.mat-card-header {
+    background: #f0f0f0;
+    margin-bottom: 5px;
+}
+#findFalcon mat-card h4 {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+#findFalcon .mat-card-header-text {
+    margin: 0;
+}
+#findFalcon .mat-form-field {
+    width: 90%;
+    margin: 0 5%;
+    font-size: 14px;
+}
+#findFalcon .mat-table {
+    width: 100%;
+}
+#inventory h4, #planets h4 {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+h4.total-time, h4.time-taken {
+    margin: 0;
+}
+#footer mat-toolbar-row.mat-toolbar-row  {
+    height: 30px;
+    font-size: 16px;
+    flex: auto;
+    justify-content: space-around;
+}
+mat-toolbar#footer {
+    min-height: 62px;
+    flex: auto;
+}

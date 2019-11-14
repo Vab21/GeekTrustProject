@@ -1,0 +1,32 @@
+mat-toolbar-row.mat-toolbar-row {
+    justify-content: center
+}
+.mat-toolbar.mat-primary {
+    margin: 0 0 10px;
+}
+.mat-card {
+    padding: 0; 
+    width: 75%;
+    margin: 0 auto;
+}
+mat-card-header.mat-card-header {
+    padding: 10px;
+    background: #cccccc;
+    border-radius: 4px 4px 0 0;
+    justify-content: center;
+}
+mat-card-content.mat-card-content {
+    padding: 10px;
+    text-align: center;
+}
+mat-card-actions.mat-card-actions {
+    border-top: 1px solid #cccccc;
+    margin: 0;
+    text-align: center;
+}
+mat-toolbar#footer {
+    min-height: 42px;
+    flex: auto;
+    position: fixed;
+    bottom: -10px;
+}

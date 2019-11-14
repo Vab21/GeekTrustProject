@@ -1,0 +1,165 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">  
+    <mat-toolbar-row>
+        <span>Select Destinations To Search To Find Falcone</span>
+        <span class="example-spacer"></span>
+        <button mat-button type="button" class="mat-raised-button" color="warn" style="width: 20%; float: right;" (click)="onReset()">Reset</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<form class="example-form"  [formGroup]="findFalconForm" id="findFalcon" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="5" rowHeight="120px">
+        <mat-grid-tile [rowspan]="2">
+        <mat-card>
+            <mat-card-header>
+            <h4>Destination 1</h4>
+            </mat-card-header>
+            <mat-form-field>
+                <mat-label>Select a Planet</mat-label>
+                <mat-select formControlName="destination1" (selectionChange) = "getVehiclesAndPlanetOptions1($event)">
+                <mat-option *ngFor="let dest1Option of dest1Options" [value]="dest1Option.name">{{dest1Option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+            <mat-label>Select a Vehicle</mat-label>
+            <mat-select formControlName="vehicle1" (selectionChange) = "onSelectingVehicle1($event)">
+                <mat-option *ngFor="let vehicle1Option of vehicle1Options" [value]="vehicle1Option.name">{{vehicle1Option.name}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            <hr>
+            <h4 class="time-taken">Time taken: {{timeDest1}}</h4> 
+            <hr>
+        </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="dest2Block" [rowspan]="2">
+        <mat-card>
+            <mat-card-header>
+            <h4>Destination 2</h4>
+            </mat-card-header>
+            <mat-form-field>
+            <mat-label>Select a Planet</mat-label>
+            <mat-select formControlName="destination2" (selectionChange) = "getVehiclesAndPlanetOptions2($event)">
+                <mat-option *ngFor="let dest2Option of dest2Options" [value]="dest2Option.name">{{dest2Option.name}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+            <mat-label>Select a Vehicle</mat-label>
+            <mat-select formControlName="vehicle2" (selectionChange) = "onSelectingVehicle2($event)">
+                <mat-option *ngFor="let vehicle2Option of vehicle2Options" [value]="vehicle2Option.name">{{vehicle2Option.name}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            <hr>
+            <h4 class="time-taken">Time taken: {{timeDest2}}</h4>
+            <hr>
+        </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="dest3Block" [rowspan]="2">
+        <mat-card>
+            <mat-card-header>
+            <h4>Destination 3</h4>
+            </mat-card-header>
+            <mat-form-field>
+                <mat-label>Select a Planet</mat-label>
+                <mat-select formControlName="destination3" (selectionChange) = "getVehiclesAndPlanetOptions3($event)">
+                <mat-option *ngFor="let dest3Option of dest3Options" [value]="dest3Option.name">{{dest3Option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Select a Vehicle</mat-label>
+                <mat-select formControlName="vehicle3" (selectionChange) = "onSelectingVehicle3($event)">
+                <mat-option *ngFor="let vehicle3Option of vehicle3Options" [value]="vehicle3Option.name">{{vehicle3Option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <hr>
+            <h4 class="time-taken">Time taken: {{timeDest3}}</h4>
+            <hr>
+        </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="dest4Block" [rowspan]="2">
+        <mat-card>
+            <mat-card-header>
+            <h4>Destination 4</h4>
+            </mat-card-header>
+            <mat-form-field>
+                <mat-label>Select a Planet</mat-label>
+                <mat-select formControlName="destination4" (selectionChange) = "getVehiclesOptions4($event)">
+                <mat-option *ngFor="let dest4Option of dest4Options" [value]="dest4Option.name">{{dest4Option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Select a Vehicle</mat-label>
+                <mat-select formControlName="vehicle4" (selectionChange) = "onSelectingVehicle4($event)">
+                <mat-option *ngFor="let vehicle4Option of vehicle4Options" [value]="vehicle4Option.name">{{vehicle4Option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <hr>
+            <h4 class="time-taken">Time taken: {{timeDest4}}</h4>
+            <hr>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <h4 class="total-time">Total Time taken: {{timeDest1 + timeDest2 + timeDest3 + timeDest4}} </h4>
+        </mat-grid-tile> 
+        <mat-grid-tile [colspan]="1" [rowspan]="1" *ngIf="dest4Block">          
+            <button mat-button class="mat-raised-button" color="primary" type="submit" style="width: 80%">Find Falcone</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="6" rowHeight="250px">
+    <mat-grid-tile colspan="4" id="inventory">
+        <h4>Vehicles Inventory Details</h4>
+        <table mat-table [dataSource]="vehicles" class="mat-elevation-z8">
+            <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            <!-- Vehicle Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Vehicle Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            
+            <!-- Total Number Column -->
+            <ng-container matColumnDef="total_no">
+                <th mat-header-cell *matHeaderCellDef> Total Number Left</th>
+                <td mat-cell *matCellDef="let element"> {{element.total_no}} </td>
+            </ng-container>
+            
+            <!-- Max Distance Column -->
+            <ng-container matColumnDef="max_distance">
+                <th mat-header-cell *matHeaderCellDef> Max Distance </th>
+                <td mat-cell *matCellDef="let element"> {{element.max_distance}} </td>
+            </ng-container>
+
+            <!-- Speed Column -->
+            <ng-container matColumnDef="speed">
+                <th mat-header-cell *matHeaderCellDef> Speed </th>
+                <td mat-cell *matCellDef="let element"> {{element.speed}} </td>
+            </ng-container>            
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsVehicles"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsVehicles;"></tr>
+            </table>     
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" id="planets">
+        <h4>Planet Details</h4>
+        <table mat-table [dataSource]="planets" class="mat-elevation-z8">
+            <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            <!-- Planet Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Planet Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>            
+            <!-- Planet Distance Column -->
+            <ng-container matColumnDef="distance">
+                <th mat-header-cell *matHeaderCellDef> Distance </th>
+                <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+            </ng-container>         
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsPlanets"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsPlanets;"></tr>
+            </table>
+    </mat-grid-tile>      
+    </mat-grid-list>  
+</form>
+<mat-toolbar color="primary" id="footer">  
+    <mat-toolbar-row>
+    <span>&copy; GeekTrust front end coding solution by Vaibhav Jain</span>
+    </mat-toolbar-row>
+</mat-toolbar>    
+      

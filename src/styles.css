@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+* {
+    margin: 0;
+    padding: 0;
+}
+#findFalcon .mat-grid-tile .mat-figure {
+    padding: 10px;
+    align-items: baseline;
+}
+#findFalcon .mat-card-header-text {
+    margin: 0;
+}
+#findFalcon tr.mat-header-row {
+    height: 35px;
+}
+#findFalcon tr.mat-footer-row, #findFalcon tr.mat-row {
+    height: 27px;
+}
+#findFalcon .mat-cell, .mat-footer-cell {
+    font-size: 12px;
+}
+#inventory.mat-grid-tile .mat-figure, #planets.mat-grid-tile .mat-figure {
+    display: block;
+}
