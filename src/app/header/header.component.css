@@ -1,3 +1,10 @@
 .example-spacer {
     flex: 1 1 auto;
 }
+mat-toolbar#header {
+    min-height: 30px;
+}
+mat-toolbar#header .mat-toolbar-row {
+    justify-content: center;
+    height: 42px;
+}
