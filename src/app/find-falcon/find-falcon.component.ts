@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { TimeCalculationService } from './services/time-calculation.service';
 import { PlanetSelectionService } from './services/planet-selection.service';
 import { VehicleInvSelctionService } from './services/vehicle-inv-selction.service';
-import { BreakpointObserver } from '@angular/cdk/layout';
 @Component({
   selector: 'app-find-falcon',
   templateUrl: './find-falcon.component.html',
@@ -18,7 +17,6 @@ export class FindFalconComponent implements OnInit {
   token: Observable<any>;
   selectedVehicles = [];
   selectedPlanets = [];
-  result: any;
   destOptions = [];
   displayedColumnsVehicles: string[] = ['name', 'total_no', 'max_distance', 'speed'];
   displayedColumnsPlanets: string[] = ['name', 'distance'];
