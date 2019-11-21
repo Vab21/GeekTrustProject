@@ -1,19 +1,16 @@
 mat-toolbar-row.mat-toolbar-row {
     justify-content: center
 }
-.mat-toolbar.mat-primary {
-    margin: 0 0 10px;
-}
 .mat-card {
-    padding: 0; 
+    padding: 0 0 10px; 
     width: 75%;
     margin: 0 auto;
 }
 mat-card-header.mat-card-header {
     padding: 10px;
-    background: #cccccc;
     border-radius: 4px 4px 0 0;
     justify-content: center;
+    color: #ffffff
 }
 mat-card-content.mat-card-content {
     padding: 10px;
@@ -24,9 +21,6 @@ mat-card-actions.mat-card-actions {
     margin: 0;
     text-align: center;
 }
-mat-toolbar#footer {
-    min-height: 42px;
-    flex: auto;
-    position: fixed;
-    bottom: -10px;
+mat-card-actions.mat-card-actions button.mat-button {
+    min-width: 250px
 }

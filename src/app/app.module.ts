@@ -6,16 +6,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatSelectModule, MatGridListModule, MatCardModule, MatTableModule, MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/material';
+import { MatFormFieldModule,
+        MatAutocompleteModule,
+        MatInputModule,
+        MatSelectModule,
+        MatGridListModule,
+        MatCardModule,
+        MatTableModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule } from '@angular/material';
 import { ResultComponent } from './result/result.component';
 import { FindFalconComponent } from './find-falcon/find-falcon.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ResultComponent,
-    FindFalconComponent
+    FindFalconComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +45,8 @@ import { FindFalconComponent } from './find-falcon/find-falcon.component';
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

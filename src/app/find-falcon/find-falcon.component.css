@@ -39,11 +39,15 @@ form#findFalcon {
 #inventory h4, #planets h4 {
     width: 100%;
     text-align: center;
-    margin: 10px 0;
 }
-h4.total-time, h4.time-taken {
+h5.total-time{
     margin: 0;
 }
+div.row {
+    border: 1px solid #cccccc;
+    padding: 10px 0;
+}
+
 #footer mat-toolbar-row.mat-toolbar-row  {
     height: 30px;
     font-size: 16px;

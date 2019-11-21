@@ -1,0 +1,11 @@
+mat-toolbar#footer {
+    min-height: 30px;
+    flex: auto;
+    position: fixed;
+    bottom: 0px;
+    font-size: 14px
+}
+mat-toolbar#footer .mat-toolbar-row {
+    justify-content: center;
+    height: 42px;
+}

@@ -1,11 +1,5 @@
-<mat-toolbar color="primary">  
-    <mat-toolbar-row>
-        <h1 class="example-spacer">Find Falcone</h1>
-    </mat-toolbar-row>
-</mat-toolbar>
-
 <mat-card>
-    <mat-card-header><h3>{{status | uppercase}}</h3></mat-card-header>
+    <mat-card-header [ngStyle]="status=='success'?{'background-color':'#4CAF50'} : {'background-color': '#f44336'}"><h3>{{status | uppercase}}</h3></mat-card-header>
     <mat-card-content *ngIf="status == 'success'">
         <h2>Congratulations on finding falcone. King Shan is mighty pleased !!!</h2>
         <h4>Time Taken: {{ totalTime }}</h4>
@@ -21,8 +15,3 @@
         <button mat-button type="button" class="mat-raised-button" color="warn" style="width: 20%; margin-bottom: 10px;" (click)="home()">Let's Find Falcone Again !!!</button>
     </mat-card-actions>
 </mat-card>
-<mat-toolbar color="primary" id="footer">  
-    <mat-toolbar-row>
-        <span>&copy; GeekTrust front end coding solution by Vaibhav Jain</span>
-    </mat-toolbar-row>
-</mat-toolbar>    
